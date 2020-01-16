@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(12,1): warning C4005: 'NT_SUCCESS': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winternl.h(876): message : see previous definition of 'NT_SUCCESS'
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 20 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  enum_proc_openers.vcxproj -> C:\Users\Helios\source\repos\enum_proc_openers\x64\Release\enum_proc_openers.exe

@@ -1,0 +1,9 @@
+﻿  main.cpp
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(310,23): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(310,23): message : consider using '%zx' in the format string
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(320,20): warning C4477: 'printf' : format string '%x' requires an argument of type 'unsigned int', but variadic argument 2 has type 'size_t'
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(320,20): message : consider using '%zx' in the format string
+C:\Users\Helios\source\repos\enum_proc_openers\main.cpp(220,10): warning C4101: 'dwPriorityClass': unreferenced local variable
+  wingetopt.cpp
+  Generating Code...
+  enum_proc_openers.vcxproj -> C:\Users\Helios\source\repos\enum_proc_openers\x64\Debug\enum_proc_openers.exe
