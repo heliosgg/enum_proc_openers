@@ -291,12 +291,21 @@ int main(int argc, char** argv)
          }
 
          char szTargetPath[MAX_PATH];
+         char szTargetName[MAX_PATH / 2];
+         char szTargetExt[MAX_PATH / 2];
 
          if (!GetModuleFileNameExA(hCurDuplicate, 0, szTargetPath, MAX_PATH))
          {
             CloseHandle(hCurDuplicate);
             continue;
          }
+
+         if (_splitpath_s(szTargetPath, nullptr, 0, nullptr, 0, szTargetName, sizeof(szTargetName), szTargetExt, sizeof(szTargetExt)))
+         {
+            CloseHandle(hCurDuplicate);
+            continue;
+         }
+
 
          // Get handles target pid
          PROCESS_BASIC_INFORMATION pbi;
@@ -306,21 +315,23 @@ int main(int argc, char** argv)
          {
             if (pbi.UniqueProcessId == uTargetPid || !uTargetPid)
             {
-               printf("[Pid: %d][Handle: 0x%x]\t%S\topened\t%s [Pid: %d]\n",
+               printf("[Pid: %d][Handle: 0x%x]\t%S\topened\t%s%s\t[Pid: %d]\n",
                   pe32.th32ProcessID,
                   hCurHandle,
                   pe32.szExeFile,
-                  szTargetPath,
+                  szTargetName,
+                  szTargetExt,
                   (DWORD)pbi.UniqueProcessId);
             }
          }
          else
          {
-            printf("[Pid: %d][Handle: 0x%x]\t%S\topened\t%s [Pid: Unknown]\n",
+            printf("[Pid: %d][Handle: 0x%x]\t%S\topened\t%s%s\t[Pid: Unknown]\n",
                pe32.th32ProcessID,
                hCurHandle,
                pe32.szExeFile,
-               szTargetPath);
+               szTargetName,
+               szTargetExt);
          }
 
          CloseHandle(hCurDuplicate);
